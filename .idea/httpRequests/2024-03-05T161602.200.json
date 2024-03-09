@@ -1,0 +1,35 @@
+{
+  "message": "Teachers List",
+  "data": [
+    {
+      "id": 1,
+      "books": [
+        {
+          "id": 2,
+          "title": "vdsvs",
+          "description": "cdsfsd",
+          "teacher": 1
+        },
+        {
+          "id": 3,
+          "title": "Three",
+          "description": "Book Three",
+          "teacher": 1
+        }
+      ],
+      "name": "Mnokote"
+    },
+    {
+      "id": 2,
+      "books": [
+        {
+          "id": 1,
+          "title": "mzee",
+          "description": "mnokote",
+          "teacher": 2
+        }
+      ],
+      "name": "Mfaume"
+    }
+  ]
+}

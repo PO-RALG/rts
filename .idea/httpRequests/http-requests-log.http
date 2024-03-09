@@ -1,0 +1,27 @@
+GET http://127.0.0.1:8000/teachers/
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-03-05T161609.401.json
+
+###
+
+GET http://127.0.0.1:8000/teachers/
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-03-05T161602.200.json
+
+###
+
+GET http://127.0.0.1:8000/teachers/
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-03-05T160908.200.json
+
+###
+

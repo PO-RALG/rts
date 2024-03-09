@@ -1,0 +1,88 @@
+rabit in django
+ ------sudo apt install python3-celery  ---for aqp
+
+# Configure Django to Use Celery with RabbitMQ:
+# settings.py
+CELERY_BROKER_URL = 'amqp://localhost'  # RabbitMQ broker URL
+CELERY_RESULT_BACKEND = 'rpc://'
+
+
+#Create a celery.py file in your Django app directory (usually alongside settings.py) to initialize Celery:
+
+# celery.py
+from __future__ import absolute_import, unicode_literals
+import os
+from celery import Celery
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoProjectTest.settings')
+
+app = Celery('your_project')
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks()
+
+
+#Define Celery Tasks: Define a Celery task that will process the signals received from the mobile app. For example:
+
+# tasks.py
+from celery import shared_task
+
+@shared_task
+def process_signal(signal_data):
+    # Process the signal data here
+    pass
+
+
+
+#Run Celery Worker: Start a Celery worker to process the tasks:
+#Run at project root
+ celery -A app worker --loglevel=info
+
+#Trigger the task: You can trigger the process_signal task from your Django views or other parts of your application. For example, in a view function:
+
+from .tasks import process_signal
+
+def my_view(request):
+    # Assuming signal_data is received from the request
+    signal_data = request.POST.get('signal_data')
+
+    # Trigger the Celery task
+    process_signal.delay(signal_data)
+
+    return HttpResponse("Signal received and processed")
+
+#Create a Consumer to Process Signals:
+Create a consumer to process the signals from RabbitMQ and save them to your signal table. You can use the ConsumerMixin class from kombu.mixins to create a simple consumer:
+
+from kombu import Connection, Exchange, Queue
+from kombu.mixins import ConsumerMixin
+from your_app.models import Signal
+import json
+
+class SignalConsumer(ConsumerMixin):
+    def __init__(self, connection, queue):
+        self.connection = connection
+        self.queue = queue
+
+    def get_consumers(self, Consumer, channel):
+        return [Consumer(queues=[self.queue], callbacks=[self.on_message])]
+
+    def on_message(self, body, message):
+        signal_data = json.loads(body)
+        Signal.objects.create(data=signal_data)
+        message.ack()
+
+with Connection('amqp://guest:guest@localhost:5672//') as conn:
+    exchange = Exchange('signals', type='direct')
+    queue = Queue('signal-queue', exchange, routing_key='signal-queue')
+    consumer = SignalConsumer(conn, queue)
+    consumer.run()
+
+
+#Run the Consumer:
+You can run the consumer script in a separate process to continuously process signals from RabbitMQ and save them to your signal table.
+
+python signal_consumer.py
+
+
+
+Using a message queue like RabbitMQ can indeed be a good approach for handling signals or messages in your application. It helps decouple the components of your system, making it more scalable and resilient to failures. By using a queue, you can ensure that signals are processed in a reliable and efficient manner, even during high loads or when there are spikes in traffic. Additionally, queues can provide features like message persistence, delivery guarantees, and message routing, which can be very useful in building robust and reliable systems.
