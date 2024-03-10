@@ -6,7 +6,7 @@ from app.views import signal_view
 
 router = DefaultRouter()
 
-router.register('book', views.BookViewSet)
+# router.register('book', views.BookViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),

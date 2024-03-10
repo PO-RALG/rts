@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'app',
+    'otp',
+    'nearbysignals',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -136,3 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configure Django to Use Celery with RabbitMQ:
 CELERY_BROKER_URL = 'amqp://localhost'  # RabbitMQ broker URL
 CELERY_RESULT_BACKEND = 'rpc://'
+
+# Configuration for Twilio
+TWILIO_ACCOUNT_SID = 'AC40e9cd6954923770d93ee5f59663a19e'
+TWILIO_AUTH_TOKEN = '74686454f99f2bd0c3aa1461c0e04177'
+TWILIO_PHONE_NUMBER = '+13308993293'
