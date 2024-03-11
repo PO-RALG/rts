@@ -18,16 +18,19 @@ def haversine(lat1, lon1, lat2, lon2):
 
     return distance
 
-def find_nearby_points(target_lat, target_lon, max_distance=100):
+def find_nearby_points(target_lat, target_lon, max_distance=10000):
     signals = DriverAppSignal.objects.all()
+
     nearby_points = []
     for signal in signals:
         distance = haversine(target_lat, target_lon, signal.latitude, signal.longitude)
+        print("signals", distance)
+
         if distance <= max_distance:
             nearby_points.append({
                 'latitude': signal.latitude,
                 'longitude': signal.longitude,
-                'timestamp': signal.timestamp
+                'timestamp': signal.signal_data
             })
     return nearby_points
 

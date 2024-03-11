@@ -30,5 +30,5 @@ class DriverAppSignal(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
 
     def __str__(self):
-        return self.signal_data
+        return f"latitude: {self.latitude}, longitude: {self.longitude}"
 

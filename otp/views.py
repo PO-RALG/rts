@@ -43,7 +43,7 @@ class VerifyOTPView(View):
             return JsonResponse({'error': 'Phone number or OTP not provided'}, status=400)
 
         teacher = Teacher.objects.filter(phone_number=phone_number, otp=otp_entered).first()
-        print("teacher", teacher)
+        # print("teacher", teacher)
 
         if not teacher:
             return JsonResponse({'error': 'Incorrect OTP'}, status=400)
