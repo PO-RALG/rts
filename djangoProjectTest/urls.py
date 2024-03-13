@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('app.urls')),
     path('', include('otp.urls')),
     path('', include('nearbysignals.urls')),
+    path('', include('notifier.urls')),
 ]

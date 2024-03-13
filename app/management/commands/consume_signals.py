@@ -3,6 +3,7 @@ from kombu import Connection, Exchange, Queue
 from app.models import DriverAppSignal
 import json
 
+
 class Command(BaseCommand):
     help = 'Consumes signals from RabbitMQ and saves them to the database'
 
@@ -17,11 +18,14 @@ class Command(BaseCommand):
                 conn.drain_events()
 
     def process_signal(self, body, message):
-        data = json.loads(body)
+        print('Received', type(body))
+        data = body
         signal_data = data.get('signal_data')
         device_imei = data.get('device_imei')
+        latitude = data.get('latitude')
+        longitude = data.get('longitude')
 
-        if signal_data and device_imei:
-            DriverAppSignal.objects.create(signal_data=signal_data, device_imei=device_imei)
-
+        if latitude and longitude and device_imei and signal_data:
+            DriverAppSignal.objects.create(signal_data=signal_data, device_imei=device_imei,
+                                           latitude=latitude, longitude=longitude)
         message.ack()

@@ -1,0 +1,23 @@
+pip3 install channels..........not nessesary
+pip3 install channels[daphne]
+pip3 install asgiref
+pip3 install websockets
+pip3 install channels_redis
+
+
+INSTALLED_APPS = [
+    # Other apps...
+    'channels',
+]
+
+redis-server
+
+
+The connection flow between a view sending a push notification, routing, and consumers in a Django Channels application can be summarized as follows:
+
+View Sending Push Notification: A Django view initiates the process by calling a function to send a push notification. This function typically uses Django Channels' channel_layer to send a message to a specific channel or group.
+
+Routing: The routing configuration in your Django Channels application determines how messages are routed to the appropriate consumers. This is typically defined in your routing.py file and maps URL paths to consumer classes.
+
+Consumers: Consumers are classes that handle incoming messages from channels. They can perform various actions based on the received message, such as sending a response or broadcasting a message to a group of clients.
+ws://localhost:8000/ws/notifications/

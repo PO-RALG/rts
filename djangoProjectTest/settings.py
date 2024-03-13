@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'app',
     'otp',
     'nearbysignals',
+    'notifier',
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -139,7 +141,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL = 'amqp://localhost'  # RabbitMQ broker URL
 CELERY_RESULT_BACKEND = 'rpc://'
 
+# Configuration for ASGI
+ASGI_APPLICATION = 'djangoProjectTest.asgi.application'
+
+# Configuration for CHANNEL_LAYERS
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('localhost', 6379)],
+        },
+    },
+}
+
+
 # Configuration for Twilio
 TWILIO_ACCOUNT_SID = 'AC40e9cd6954923770d93ee5f59663a19e'
-TWILIO_AUTH_TOKEN = '74686454f99f2bd0c3aa1461c0e04177'
+TWILIO_AUTH_TOKEN = '8eaf83c6701a377f74fd26e9533f6fff'
 TWILIO_PHONE_NUMBER = '+13308993293'
