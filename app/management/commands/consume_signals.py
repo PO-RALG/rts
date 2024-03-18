@@ -20,12 +20,12 @@ class Command(BaseCommand):
     def process_signal(self, body, message):
         print('Received', type(body))
         data = body
-        signal_data = data.get('signal_data')
+        device_id = data.get('device_id')
         device_imei = data.get('device_imei')
         latitude = data.get('latitude')
         longitude = data.get('longitude')
 
-        if latitude and longitude and device_imei and signal_data:
-            DriverAppSignal.objects.create(signal_data=signal_data, device_imei=device_imei,
+        if latitude and longitude and device_imei and device_id:
+            DriverAppSignal.objects.create(device_id=device_id, device_imei=device_imei,
                                            latitude=latitude, longitude=longitude)
         message.ack()

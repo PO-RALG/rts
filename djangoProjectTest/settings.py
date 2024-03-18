@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['161.97.66.17']
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -87,7 +88,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rts',
+        'NAME': 'trs',
         'USER': 'postgres',
         'PASSWORD': 'Evlina@1990',
         'HOST': 'localhost',
