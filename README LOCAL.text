@@ -1,9 +1,9 @@
 
 --------sudo apt install python3-django
 python3 manage.py  runserver start a server
-python3 manage.py  startapp otp -----create app
+python3 manage.py  startapp notifier -----create app
 
-connecting app to django.....in settings array 
+connecting app to django.....in settings array
 
 --------sudo apt install python3-djangorestframework for api
 
@@ -18,9 +18,11 @@ migrate
 mnkote
 p@ssw0rd
 
-celery -A app worker --loglevel=info
-python signal_consumer.py
+celery -A app worker --loglevel=info   ---run worker
+python manage.py consume_signals ----run consumer
 python3 manage.py  runserver ---start server
+
+python signal_consumer.py
 
 
 

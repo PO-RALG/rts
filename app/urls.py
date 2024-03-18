@@ -14,5 +14,8 @@ urlpatterns = [
     path('teachers/', views.TeacherListView.as_view(), name='teachers'),
     path('book/', include(router.urls)),
     path('mobilesignals/', signal_view, name='signal_view'),
+    path('check_firebase_connection/', views.check_firebase_connection, name='check_firebase_connection'),
+    path('send_notification/', views.send_notification, name='send_notification'),
+    path('get_firebase_token/', views.get_firebase_token, name='get_firebase_token'),
 
 ]

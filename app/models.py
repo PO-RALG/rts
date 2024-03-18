@@ -24,10 +24,12 @@ class Teacher(models.Model):
 
 class DriverAppSignal(models.Model):
     id = models.AutoField(primary_key=True)
-    signal_data = models.CharField(max_length=200, blank=True, null=True)
+    device_id = models.CharField(max_length=200, blank=True, null=True)
+    driver_id = models.CharField(max_length=200, blank=True, null=True)
     device_imei = models.CharField(max_length=200, blank=True, null=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"latitude: {self.latitude}, longitude: {self.longitude}"

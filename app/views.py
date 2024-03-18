@@ -12,6 +12,12 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from .tasks import process_signal
 
+import firebase_admin
+
+from app.middleware import FirebaseInitMiddleware
+from firebase_admin import auth
+
+
 @csrf_exempt
 def signal_view(request):
     if request.method == 'POST':
@@ -45,7 +51,7 @@ class BookApiView(APIView):
     # permission_classes = (IsAuthenticated,)
 
     def get(self, request, format=None):
-        allbooks=Book.objects.all().values()
+        allbooks = Book.objects.all().values()
         return Response({"message": "Book List", "data": allbooks})
 
     def post(self, request, format=None):
@@ -64,6 +70,42 @@ class TeacherListView(APIView):
     def post(self, request, format=None):
         Teacher.objects.create(id=request.data["id"], title=request.data["name"])
 
+
 def index(request):
     return render(request, 'index.html')
 
+
+# views.py
+
+def check_firebase_connection(request):
+    if firebase_admin._apps:
+        # Firebase Admin SDK is initialized
+        return JsonResponse({'status': 'success', 'message': 'Firebase connected'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Firebase not connected'})
+
+
+def get_firebase_token(request):
+    try:
+        user_id = 'user_id'  # Provide the user ID for which you want to retrieve the token
+        custom_token = auth.create_custom_token(user_id)
+        return JsonResponse({'registration_token': custom_token.decode()})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
+
+@csrf_exempt
+def send_notification(request):
+    if request.method == 'POST':
+        registration_token = request.POST.get('registration_token', '')
+        title = request.POST.get('title', '')
+        body = request.POST.get('body', '')
+
+        # Get the FirebaseInitMiddleware instance
+        firebase_middleware = FirebaseInitMiddleware(get_response=None)
+
+        # Send the notification
+        response = firebase_middleware.send_notification(registration_token, title, body)
+        return JsonResponse({'status': 'success', 'response': response})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
