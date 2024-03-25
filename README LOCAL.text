@@ -21,7 +21,7 @@ celery -A app worker --loglevel=info   ---run worker
 python manage.py consume_signals ----run consumer
 python3 manage.py  runserver ---start server
 
-python signal_consumer.py
+
 
 
 

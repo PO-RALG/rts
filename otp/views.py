@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from app.models import Teacher
+# from app.models import Teacher
 from .utils import send_otp
 from random import randint
 
