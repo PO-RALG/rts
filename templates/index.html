@@ -1,48 +1,70 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Bar with Buttons</title>
+<title>RTS</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-    }
-    .app-bar {
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f0f0;
     }
-    .buttons {
-        display: flex;
-        gap: 10px;
+    .text {
+        font-size: 126px;
+        font-weight: bold;
+        position: relative;
     }
-    .button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
+    .blue {
+        color: blue;
+    }
+    .green {
+        color: green;
+    }
+    .black {
+        color: black;
+    }
+    .underline {
+        text-decoration: underline;
+        text-decoration-color: red;
+        text-decoration-thickness: 3px;
+        line-height: 0.1em;
+        margin-bottom: 120px;
+    }
+    .image {
+        position: absolute;
+        top: -50px; /* Adjust the top position as needed */
+        left: 50%; /* Center the image horizontally */
+        transform: translateX(-50%);
     }
 </style>
 </head>
 <body>
-    <div class="app-bar">
-        <div>App Name</div>
-        <div class="buttons">
-            <button class="button">Button 1</button>
-            <button class="button">Button 2</button>
-            <button class="button">Button 3</button>
+    <div class="text underline">
+        <span class="blue"></span>
+        <span class="green"></span>
+        <span class="black"></span>
+        <img src="{% static 'rts.jpeg' %}" alt="Image" class="image">
+    </div>
+    <p>
+        <div class="text">
+
+            <span class="">R</span>
+            <span class="">U</span>
+            <span class="">N</span>
+            <span class="">N</span>
+            <span class="">I</span>
+            <span class="">N</span>
+            <span class="">G</span>
         </div>
-    </div>
-    <div class="content">
-        <!-- Your content here -->
-    </div>
+    </p>
 </body>
 </html>

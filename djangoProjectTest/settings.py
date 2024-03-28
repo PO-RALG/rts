@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-#qf@ya9h9z@a!h50qiur(it0wzove8&bkk(ld8#h+mbwfqa6g4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['161.97.66.17']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['161.97.66.17']
 
 
 # Application definition
@@ -90,10 +90,10 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': 'rts',
-        'NAME': 'mmm',
+        'NAME': 'mmama',
         'USER': 'postgres',
-        'PASSWORD': 'p@ssw0rd',
-        # 'PASSWORD': 'Evlina@1990',
+        # 'PASSWORD': 'p@ssw0rd',
+        'PASSWORD': 'Evlina@1990',
         'HOST': 'localhost',
 
     }
@@ -135,6 +135,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / "app/static",
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

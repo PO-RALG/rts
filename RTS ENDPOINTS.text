@@ -1,0 +1,72 @@
+
+
+ENDPOINT YA KUVUTA CASE YA DEREVA HUSIKA ALIYECHAGULIWA NA DISPATURE KWENYE DA FROM RTS:
+
+http://161.97.66.17/journey/{driverId}/
+
+driverId: DATA TYPE:STRING
+
+eg:http://161.97.66.17/journey/c32ccaee-332d-4c0d-a8bf-8165e5a9b65b/
+
+
+RESPONSE ITAKAYORUDI
+
+{
+    "id": "914f0495-5f80-4a98-91ab-24d65fe51020",
+    "status": "COMPLETE",
+    "driver_id": "c32ccaee-332d-4c0d-a8bf-8165e5a9b65b",
+    "patient_case_id": "4712ecca-7bb1-4c55-aa71-dadc59e11927",
+    "route_id": "1167e843-7f56-48c7-afb0-9e4912b8241f",
+    "driver": {
+        "id": "c32ccaee-332d-4c0d-a8bf-8165e5a9b65b",
+        "first_name": "YUSUF",
+        "last_name": "FUTE",
+        "license_number": "4002453907"
+    },
+    "route": {
+        "id": "1167e843-7f56-48c7-afb0-9e4912b8241f",
+        "start_facility": {
+            "id": "b9e9bbd7-45f5-474a-a570-3770d5c1a919",
+            "name": "MGOLOLO",
+            "location_lat": -8.5471,
+            "location_lon": 35.12551
+        },
+        "end_facility": {
+            "id": "53d7de5c-234d-4018-975b-84ea7cccaaf6",
+            "name": "MUFINDI DISTRICT HOSPITAL",
+            "location_lat": -8.5471,
+            "location_lon": 35.12551
+        }
+    }
+}
+
+************************************************************************
+
+@Masanja LarryMatrix  , and TEAM   
+ENDPOINT YA KUPOST DEREVA ALIYECHAGULIWA KWENDA RTS:
+
+*http://161.97.66.17/create_driver_journey/*
+
+PAYLOAD TYPE: JSON
+
+eg: *{
+    journey_id:"914f0495-5f80-4a98-91ab-24d65fe51020"
+}*
+
+
+RESPONSE:
+{
+    "success": true,
+    "message": "DriverJourney created successfully"
+}
+
+**************************************************************************
+
+@Masanja LarryMatrix  , and TEAM   
+ENDPOINT YA KUPATA DRIVERS NEARBY PICKUP POINT KUTOKA  RTS:
+
+http://161.97.66.17/nearby_points/location_lat/location_lon 
+
+METHOD:GET
+
+eg:http://161.97.66.17/nearby_points/6.8165/39.2894

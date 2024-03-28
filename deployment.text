@@ -1,3 +1,6 @@
+
+source myenv/bin/activate
+
 pip install daphne
 pip install firebase_admin
 pip install django djangorestframework
@@ -12,7 +15,12 @@ pip3 install celery
 pip3 install twilio
 pip3 install channels
 
+
+**********************RABIT MQ
 pip3 install kombu
+systemctl status rabbitmq-server
+sudo rabbitmq-plugins enable rabbitmq_management
+http://localhost:15672/
 
 
 
@@ -42,6 +50,12 @@ sudo chmod o+x /root /root/rts
 chown www-data:www-data /root/rts/djangoProjectTest.sock
 
 
-
+****runing gunicorn
 ps aux | grep gunicorn
+
+****************run worker
+celery -A app worker --loglevel=info
+
+****** consume signals
+python manage.py consume_signals
 

@@ -18,7 +18,17 @@ mnkote
 p@ssw0rd
 
 celery -A app worker --loglevel=info   ---run worker
+celery -A app worker --loglevel=info --detach
+celery -A app control stop celery@mmnokote-ThinkPad-T490s
+
+
 python manage.py consume_signals ----run consumer
+nohup python manage.py consume_signals &   ====run in background
+tail -f nohup.out =====to see output
+ps aux | grep 'python manage.py consume_signals' ===to see running in PID
+
+
+
 python3 manage.py  runserver ---start server
 
 
@@ -32,3 +42,6 @@ djoser
 related_name
 serializer...............
 view set
+
+
+python manage.py collectstatic
