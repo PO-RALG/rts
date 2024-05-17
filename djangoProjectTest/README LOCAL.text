@@ -1,0 +1,38 @@
+
+--------sudo apt install python3-django
+python3 manage.py  runserver start a server
+python3 manage.py  startapp notifier -----create app
+
+connecting app to django.....in settings array 
+
+--------sudo apt install python3-djangorestframework for api
+
+ ------sudo apt install python3-celery  ---for aqp
+
+djangorestframework
+
+./manage.py makemigrations
+
+migrate
+
+mnkote
+p@ssw0rd
+
+celery -A app worker --loglevel=info   ---run worker
+python manage.py consume_signals ----run consumer
+
+python3 manage.py  createsuperuser ---super user
+
+python3 manage.py  runserver ---start server
+
+python signal_consumer.py
+
+
+
+
+
+django_jazzmin
+djoser
+related_name
+serializer...............
+view set

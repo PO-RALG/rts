@@ -32,11 +32,6 @@ ps aux | grep 'python manage.py consume_signals' ===to see running in PID
 python3 manage.py  runserver ---start server
 
 
-
-
-
-
-
 django_jazzmin
 djoser
 related_name
@@ -45,3 +40,9 @@ view set
 
 
 python manage.py collectstatic
+chmod +x run_celery.sh
+
+
+sudo docker build -t rts-app .
+sudo docker run -d -p 8000:8000 rts-app
+sudo docker run -d -p 9110:8000 rts-app

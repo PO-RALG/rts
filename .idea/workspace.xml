@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7ef987a-6011-477f-bd46-3488771631b8" name="Changes" comment="rabit connection pblish,consume and save to database">
-      <change afterPath="$PROJECT_DIR$/app/static/rts.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/celery_worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b80fd03a-9d9f-4716-8c49-e7caf3c52715.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b80fd03a-9d9f-4716-8c49-e7caf3c52715.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README LOCAL.text" beforeDir="false" afterPath="$PROJECT_DIR$/README LOCAL.text" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment.text" beforeDir="false" afterPath="$PROJECT_DIR$/deployment.text" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/djangoProjectTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProjectTest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

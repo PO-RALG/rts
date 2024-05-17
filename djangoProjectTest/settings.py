@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-#qf@ya9h9z@a!h50qiur(it0wzove8&bkk(ld8#h+mbwfqa6g4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['161.97.66.17']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'app',
     'otp',
     'nearbysignals',
@@ -55,8 +55,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'app.middleware.FirebaseInitMiddleware',
-
 ]
 
 ROOT_URLCONF = 'djangoProjectTest.urls'
@@ -89,11 +87,9 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'rts',
-        'NAME': 'mmama',
+        'NAME': 'djangoprojecttest',
         'USER': 'postgres',
-        # 'PASSWORD': 'p@ssw0rd',
-        'PASSWORD': 'Evlina@1990',
+        'PASSWORD': 'p@ssw0rd',
         'HOST': 'localhost',
 
     }
@@ -136,14 +132,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
-STATICFILES_DIRS = [
-    BASE_DIR / "app/static",
-]
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -165,6 +153,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
 
 # Configuration for Twilio
 TWILIO_ACCOUNT_SID = 'AC40e9cd6954923770d93ee5f59663a19e'
